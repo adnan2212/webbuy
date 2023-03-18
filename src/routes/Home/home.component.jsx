@@ -1,7 +1,9 @@
-/* eslint-disable no-unused-vars */
+import { Outlet } from "react-router-dom";
+
 import Directory from "../../components/directory/directory.component";
 
 const Home = () => {
+  /*
   const categories = [
     {
       id: 1,
@@ -29,8 +31,15 @@ const Home = () => {
       imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
+  */
 
-  return <Directory categories={categories} />;
+  return (
+    <div>
+      {/* <Directory categories={categories} /> */}
+      <Directory />
+      <Outlet />
+    </div>
+  );
 };
 
 export default Home;
