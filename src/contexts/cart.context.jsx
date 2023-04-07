@@ -56,7 +56,7 @@ export const CartContext = createContext({
   cartTotal: 0,
 });
 
-export const USER_ACTION_TYPES = {
+export const CART_ACTION_TYPES = {
   SET_CART_ITEMS: "SET_CART_ITEMS",
   SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
 };
@@ -65,13 +65,13 @@ export const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case USER_ACTION_TYPES.SET_CART_ITEMS:
+    case CART_ACTION_TYPES.SET_CART_ITEMS:
       return {
         ...state,
         ...payload,
       };
 
-    case USER_ACTION_TYPES.SET_IS_CART_OPEN:
+    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
       return {
         ...state,
         isCartOpen: payload,
@@ -130,7 +130,7 @@ export const CartProvider = ({ children }) => {
     );
 
     dispatch({
-      type: USER_ACTION_TYPES.SET_CART_ITEMS,
+      type: CART_ACTION_TYPES.SET_CART_ITEMS,
       payload: {
         cartItems: newCartItems,
         cartTotal: newCartTotal,
@@ -166,7 +166,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const setIsCartOpen = (bool) => {
-    dispatch({ type: USER_ACTION_TYPES.SET_IS_CART_OPEN, payload: bool });
+    dispatch({ type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: bool });
   };
 
   const value = {
